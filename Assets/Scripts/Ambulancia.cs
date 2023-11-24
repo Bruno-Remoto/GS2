@@ -15,7 +15,7 @@ public class Ambulancia : MonoBehaviour
     void Update()
     {
         float f = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        float rot = Input.GetAxis("Horizontal") * 0.3f;
+        float rot = Input.GetAxis("Horizontal") * 0.5f;
 
         transform.Translate(0, 0, f);
 
