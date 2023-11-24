@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RandomPaciente : MonoBehaviour
 {
+    public Text pacientes;
+    public Text dinheiro;
+    int pacientesNum;
+    int dinheiroNum;
     GameObject escolhido;
     public GameObject posicao1;
     public GameObject posicao2;
@@ -22,6 +27,8 @@ public class RandomPaciente : MonoBehaviour
     void Start()
     {
         escolhido = entrega;
+        pacientesNum = 10;
+        dinheiroNum = 0;
     }
 
     // Update is called once per frame
@@ -31,6 +38,14 @@ public class RandomPaciente : MonoBehaviour
         if (qtdPacientes >= maxPacientes)
         {
             //SceneManager.LoadScene("Fim de Jogo");
+        }
+
+        pacientes.text = pacientesNum.ToString();
+        dinheiro.text = dinheiroNum.ToString();
+
+        if (pacientesNum == 0)
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 
@@ -44,6 +59,8 @@ public class RandomPaciente : MonoBehaviour
         {
             pacienteUp = false;
             StartCoroutine(RandomizarLocal());
+            pacientesNum--;
+            dinheiroNum += 50;
         }
         else if(collider.gameObject.tag == "Gasolina")
         {
