@@ -13,21 +13,36 @@ public class CameraMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Mouse X") > 0)
+        float v = Input.GetAxis("Mouse X") * 100 * Time.deltaTime;
+        float h = Input.GetAxis("Mouse Y") * 100 * Time.deltaTime;
+        transform.Rotate(-h, v, 0);
+        if (Input.GetButtonDown("Jump"))
         {
-            transform.Rotate(0, Time.deltaTime * 0.5f, 0);
+            transform.Rotate(0, 180, 0);
         }
-        if (Input.GetAxis("Mouse X") < 0)
+        else if (Input.GetButtonUp("Jump"))
+        {;
+            transform.Rotate(0, 180, 0);
+        }
+        if (Input.GetButtonDown("Fire1"))
         {
-            transform.Rotate(0, -(Time.deltaTime * 0.5f), 0);
+            Cursor.lockState = CursorLockMode.Locked;
         }
-        if (Input.GetAxis("Mouse Y") > 0)
-        {
-            transform.Rotate(0, 0, Time.deltaTime * 0.5f);
-        }
-        if (Input.GetAxis("Mouse Y") < 0)
-        {
-            transform.Rotate(0, 0, -(Time.deltaTime * 0.5f));
-        }
+/*if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKey(KeyCode.UpArrow))
+{
+    transform.Rotate(-100*Time.deltaTime, 0, 0);
+}
+if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKey(KeyCode.DownArrow))
+{
+    transform.Rotate(100 * Time.deltaTime, 0, 0);
+}
+if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
+{
+    transform.Rotate(0, 100 * Time.deltaTime, 0);
+}
+if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
+{
+    transform.Rotate(0, -100 * Time.deltaTime, 0);
+}*/
     }
 }
