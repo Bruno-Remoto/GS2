@@ -27,7 +27,7 @@ public class RandomPaciente : MonoBehaviour
     void Start()
     {
         escolhido = entrega;
-        pacientesNum = 10;
+        pacientesNum = 11;
         dinheiroNum = 0;
     }
 

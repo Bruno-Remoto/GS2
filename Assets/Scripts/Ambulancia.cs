@@ -40,7 +40,7 @@ public class Ambulancia : MonoBehaviour
         potencia = gameObject.GetComponent<RandomPaciente>().potencia;
 
         float f = Input.GetAxis("Vertical") * Time.deltaTime * speed * potencia;
-        float rot = Input.GetAxis("Horizontal") * 0.4f;
+        float rot = Input.GetAxis("Horizontal") * 0.7f;
 
         /*if(Input.GetAxis("Vertical") > 0)
         {
