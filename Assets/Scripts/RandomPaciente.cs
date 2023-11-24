@@ -45,6 +45,10 @@ public class RandomPaciente : MonoBehaviour
             pacienteUp = false;
             StartCoroutine(RandomizarLocal());
         }
+        else if(collider.gameObject.tag == "Gasolina")
+        {
+            gameObject.GetComponent<Ambulancia>().gasolina = 100;
+        }
     }
 
     IEnumerator RandomizarLocal()

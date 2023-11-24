@@ -8,6 +8,7 @@ TagManager:
   - PacientePick
   - Paciente
   - Entrega
+  - Gasolina
   layers:
   - Default
   - TransparentFX
